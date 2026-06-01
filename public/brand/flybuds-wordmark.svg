@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="240" viewBox="0 0 820 240" role="img" aria-label="@iBzA Flying Buds wordmark">
+  <title>@iBzA Flying Buds</title>
+  <defs>
+    <linearGradient id="fwBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffcd6b"/>
+      <stop offset="1" stop-color="#f6b53c"/>
+    </linearGradient>
+    <linearGradient id="fwWing" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38e1c2"/>
+      <stop offset="1" stop-color="#1aa589"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== Bird mark ===== -->
+  <g transform="translate(40,52)">
+    <!-- motion trail -->
+    <g stroke-linecap="round">
+      <line x1="0" y1="60" x2="40" y2="60" stroke="#f6b53c" stroke-opacity="0.30" stroke-width="9"/>
+      <line x1="8" y1="86" x2="38" y2="86" stroke="#f6b53c" stroke-opacity="0.18" stroke-width="8"/>
+      <line x1="10" y1="36" x2="36" y2="36" stroke="#1aa589" stroke-opacity="0.30" stroke-width="7"/>
+    </g>
+    <path d="M52 68 L106 36 L152 60 L106 78 Z" fill="url(#fwBody)"/>
+    <path d="M152 60 L170 56 L154 72 Z" fill="#ff4d4d"/>
+    <path d="M106 36 L88 2 L128 32 Z" fill="url(#fwWing)"/>
+    <path d="M52 68 L106 78 L76 100 Z" fill="#c98a1e"/>
+    <circle cx="142" cy="58" r="4.4" fill="#0b0e13"/>
+  </g>
+
+  <!-- ===== Wordmark ===== -->
+  <text x="250" y="118" font-family="'JetBrains Mono','Space Mono',monospace"
+        font-weight="800" font-size="74" letter-spacing="-1" fill="#ffffff">FLYBUDS</text>
+
+  <!-- parent tag -->
+  <g transform="translate(252,140)">
+    <text x="0" y="20" font-family="'JetBrains Mono','Space Mono',monospace"
+          font-size="20" letter-spacing="6">
+      <tspan fill="#f6b53c">@iBzA</tspan><tspan fill="#1aa589"> · ARCADE FLIGHT</tspan>
+    </text>
+  </g>
+</svg>

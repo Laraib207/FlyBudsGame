@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import FlyBudsGame from '../components/FlyBudsGame'
 
 export default function Page() {
@@ -9,10 +10,16 @@ export default function Page() {
       <div className="pointer-events-none absolute -right-32 bottom-0 h-[28rem] w-[28rem] rounded-full bg-[var(--ibza-teal)] opacity-[0.07] blur-[150px]" />
 
       {/* brand bar */}
-      <div className="relative z-10 mb-5 flex items-center gap-2">
-        <span className="ibza-glow-amber text-lg">◆</span>
+      <div className="relative z-10 mb-5 flex items-center gap-3">
+        <Image
+          src="/brand/flybuds-icon.svg"
+          alt="@iBzA Flying Buds logo"
+          width={36}
+          height={36}
+          priority
+        />
         <span className="ibza-mono text-sm font-bold uppercase tracking-[0.3em] text-white">
-          iBzA
+          @iBzA
         </span>
         <span className="ibza-tag">/ FLYBUDS</span>
       </div>
@@ -21,7 +28,7 @@ export default function Page() {
         <FlyBudsGame />
       </div>
 
-      <p className="relative z-10 mt-6 ibza-tag">© 2026 iBzA · THELARAIB</p>
+      <p className="relative z-10 mt-6 ibza-tag">© 2026 @iBzA · THELARAIB</p>
     </main>
   )
 }
