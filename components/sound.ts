@@ -83,6 +83,13 @@ export function sfxScore() {
   tone(1320, 0.04, 0.12, 'sine', 0.16)
 }
 
+// bright sparkle when grabbing a coin
+export function sfxCoin() {
+  if (muted) return
+  tone(1046, 0, 0.07, 'sine', 0.16)
+  tone(1568, 0.05, 0.1, 'sine', 0.18)
+}
+
 // descending "system shutdown" on crash
 export function sfxGameOver() {
   if (muted) return

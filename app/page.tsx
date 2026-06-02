@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import FlyBudsGame from '../components/FlyBudsGame'
+import InstallButton from '../components/InstallButton'
 
 export default function Page() {
   return (
@@ -29,6 +30,7 @@ export default function Page() {
       </div>
 
       <p className="relative z-10 mt-6 ibza-tag">© 2026 @iBzA · THELARAIB</p>
+      <InstallButton />
     </main>
   )
 }
