@@ -10,6 +10,7 @@ import {
   sfxCoin,
   playBootTune,
 } from './sound'
+import { lsGet, lsSet } from './storage'
 
 // ---- Tunable base constants (difficulty ramps up from here) -----------------
 const GRAVITY = 0.26
@@ -99,13 +100,13 @@ export default function FlyBudsGame() {
   const themeRef = useRef<'dark' | 'light'>('dark')
 
   useEffect(() => {
-    setBest(Number(localStorage.getItem('ibza-flybuds-best') || 0))
-    setBestTimeMs(Number(localStorage.getItem('ibza-flybuds-best-time') || 0))
-    setTotalCoins(Number(localStorage.getItem('ibza-flybuds-coins') || 0))
-    const savedTheme = (localStorage.getItem('ibza-flybuds-theme') as 'dark' | 'light') || 'dark'
+    setBest(Number(lsGet('ibza-flybuds-best') || 0))
+    setBestTimeMs(Number(lsGet('ibza-flybuds-best-time') || 0))
+    setTotalCoins(Number(lsGet('ibza-flybuds-coins') || 0))
+    const savedTheme = (lsGet('ibza-flybuds-theme') as 'dark' | 'light') || 'dark'
     setTheme(savedTheme)
     themeRef.current = savedTheme
-    const savedMute = localStorage.getItem('ibza-flybuds-muted') === '1'
+    const savedMute = lsGet('ibza-flybuds-muted') === '1'
     setMuted(savedMute)
     setEngineMuted(savedMute)
   }, [])
@@ -114,7 +115,7 @@ export default function FlyBudsGame() {
     setMuted((prev) => {
       const next = !prev
       setEngineMuted(next)
-      localStorage.setItem('ibza-flybuds-muted', next ? '1' : '0')
+      lsSet('ibza-flybuds-muted', next ? '1' : '0')
       return next
     })
   }, [])
@@ -123,7 +124,7 @@ export default function FlyBudsGame() {
     setTheme((prev) => {
       const next = prev === 'dark' ? 'light' : 'dark'
       themeRef.current = next
-      localStorage.setItem('ibza-flybuds-theme', next)
+      lsSet('ibza-flybuds-theme', next)
       return next
     })
   }, [])
@@ -199,17 +200,17 @@ export default function FlyBudsGame() {
     sfxGameOver()
     setBest((prev) => {
       const next = Math.max(prev, scoreRef.current)
-      localStorage.setItem('ibza-flybuds-best', String(next))
+      lsSet('ibza-flybuds-best', String(next))
       return next
     })
     setBestTimeMs((prev) => {
       const next = Math.max(prev, elapsedRef.current)
-      localStorage.setItem('ibza-flybuds-best-time', String(Math.round(next)))
+      lsSet('ibza-flybuds-best-time', String(Math.round(next)))
       return next
     })
     setTotalCoins((prev) => {
       const next = prev + coinRef.current
-      localStorage.setItem('ibza-flybuds-coins', String(next))
+      lsSet('ibza-flybuds-coins', String(next))
       return next
     })
   }, [spawnParticles])
